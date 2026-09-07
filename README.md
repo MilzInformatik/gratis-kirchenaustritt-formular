@@ -23,7 +23,11 @@ muss unter *Pages* die Quelle auf *GitHub Actions* gestellt sein.
 ## Vorlage
 
 Die Briefvorlage liegt in `src/vorlage.typ`. Die Werte aus dem Formular werden
-als JSON über `sys.inputs.data` übergeben. Als Schrift wird Arial verwendet,
-gebündelt ist die metrisch identische, frei lizenzierte Schrift Arimo
-(`public/fonts/`). Wer echte Arial-Dateien besitzt, kann sie dort ablegen und
-in `src/main.ts` in die Font-Liste aufnehmen.
+als JSON über `sys.inputs.data` übergeben. Das Adressfeld sitzt im Bereich
+des Fensters von Schweizer Couverts mit Fenster rechts (C5/6 und C5).
+
+Als Schrift im Brief wird Arial verwendet, gebündelt ist die metrisch
+identische, frei lizenzierte Schrift Arimo (`public/fonts/`). Wer echte
+Arial-Dateien besitzt, kann sie dort ablegen und in `src/main.ts` in die
+Font-Liste aufnehmen. Die Website selbst nutzt Newsreader (SIL OFL) für
+Titel, ebenfalls lokal gebündelt.
