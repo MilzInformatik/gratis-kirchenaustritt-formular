@@ -1,0 +1,7 @@
+Arimo (Regular, Bold)
+Copyright 2020 The Arimo Project Authors (https://github.com/googlefonts/arimo)
+
+Licensed under the Apache License, Version 2.0.
+Arimo is metrically compatible with Arial and is used here as a drop-in
+replacement, because Arial itself may not be redistributed.
+https://www.apache.org/licenses/LICENSE-2.0
