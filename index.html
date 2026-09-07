@@ -3,33 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kirchenaustritt – Formular erstellen</title>
-    <meta name="description" content="Kostenlos eine Kirchenaustrittserklärung für die reformierte oder katholische Kirche in der Schweiz als PDF erstellen. Läuft komplett im Browser." />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%231f5f8b%27/%3E%3Cpath d=%27M9 8h14v3h-5.5v13h-3V11H9z%27 fill=%27%23fff%27/%3E%3C/svg%3E" />
+    <title>Kirchenaustritt Formular</title>
+    <meta name="description" content="Kostenlos einen Brief für den Kirchenaustritt erstellen, für die reformierte oder katholische Kirche in der Schweiz. Läuft komplett im Browser." />
+    <meta name="theme-color" content="#f6f3ec" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%231c1a17%27/%3E%3Cpath d=%27M9 8h14v3h-5.5v13h-3V11H9z%27 fill=%27%23fffdf9%27/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
     <header class="kopf">
+      <p class="eyebrow">Schweiz · Reformiert und katholisch</p>
       <h1>Kirchenaustritt</h1>
-      <p>
-        Erstelle in einer Minute deine Austrittserklärung für die reformierte oder
-        römisch-katholische Kirche. Alles läuft in deinem Browser – es werden keine Daten
-        an einen Server gesendet.
+      <p class="lead">
+        Fülle das Formular aus und lade deinen Brief als PDF herunter.
+        Alles passiert in deinem Browser. Es werden keine Daten gesendet.
       </p>
     </header>
 
     <main class="inhalt">
       <form id="formular" class="formular" autocomplete="on">
         <fieldset>
-          <legend>Konfession</legend>
+          <legend><span class="num">1</span>Konfession</legend>
           <div class="radios">
-            <label><input type="radio" name="konfession" value="reformiert" checked /> Reformiert</label>
-            <label><input type="radio" name="konfession" value="katholisch" /> Römisch-katholisch</label>
+            <label class="radio"><input type="radio" name="konfession" value="reformiert" checked /><span>Reformiert</span></label>
+            <label class="radio"><input type="radio" name="konfession" value="katholisch" /><span>Katholisch</span></label>
           </div>
         </fieldset>
 
         <fieldset>
-          <legend>Deine Angaben</legend>
+          <legend><span class="num">2</span>Deine Angaben</legend>
           <div class="reihe">
             <label>Vorname <input name="vorname" autocomplete="given-name" required /></label>
             <label>Name <input name="name" autocomplete="family-name" required /></label>
@@ -43,35 +44,38 @@
         </fieldset>
 
         <fieldset>
-          <legend>Kirchgemeinde</legend>
-          <p class="hinweis">Die Adresse deiner Kirchgemeinde findest du meist auf deren Website oder auf der Steuerrechnung.</p>
+          <legend><span class="num">3</span>Kirchgemeinde</legend>
+          <p class="hinweis">Die Adresse steht meist auf der Website der Kirchgemeinde oder auf der Steuerrechnung.</p>
           <label>Name <input name="kg_name" placeholder="z. B. Reformierte Kirchgemeinde Musterhausen" required /></label>
           <label>Strasse und Nr. <input name="kg_strasse" required /></label>
           <label>PLZ und Ort <input name="kg_plz_ort" placeholder="z. B. 8000 Zürich" required /></label>
         </fieldset>
 
         <fieldset>
-          <legend>Brief</legend>
+          <legend><span class="num">4</span>Brief</legend>
           <label>Ort, Datum <input name="ort_datum" required /></label>
           <label class="checkbox">
             <input type="checkbox" name="keine_kontaktaufnahme" checked />
-            Ich möchte zu meinem Austritt nicht kontaktiert oder befragt werden.
+            <span>Ich möchte zu meinem Austritt nicht kontaktiert oder befragt werden.</span>
           </label>
         </fieldset>
-
-        <button type="submit" id="download" disabled>PDF herunterladen</button>
-        <p id="status" class="status" aria-live="polite">Lade Typst …</p>
       </form>
 
       <section class="vorschau" aria-label="Vorschau">
+        <p class="eyebrow">Vorschau</p>
         <div id="vorschau" class="seite"></div>
       </section>
+
+      <div class="aktion">
+        <button type="submit" form="formular" id="download" disabled>PDF herunterladen</button>
+        <p id="status" class="status" aria-live="polite">Lade Typst …</p>
+      </div>
     </main>
 
     <footer class="fuss">
       <p>
-        Den Brief ausdrucken, <strong>eigenhändig unterschreiben</strong> und per Post an die
-        Kirchgemeinde senden. Manche Kirchgemeinden verlangen zusätzlich eine Kopie eines Ausweises.
+        Brief ausdrucken, <strong>von Hand unterschreiben</strong> und per Post an die
+        Kirchgemeinde schicken. Manche Kirchgemeinden wollen zusätzlich eine Ausweiskopie.
       </p>
       <p>
         Ohne Gewähr. Erstellt mit <a href="https://github.com/Myriad-Dreamin/typst.ts" rel="noopener">typst.ts</a> ·
