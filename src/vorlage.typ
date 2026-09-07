@@ -67,23 +67,39 @@
 ]
 
 #let empfaenger = block(width: adressfeld.breite)[
-  #set par(leading: 0.55em)
-  #text(size: 7.5pt)[#vollname, #person.strasse, #person.plz #person.ort]
-  #v(-0.3em)
+  #set par(leading: 0.5em)
+  #text(size: 7pt)[#vollname, #person.strasse, #person.plz #person.ort]
+  #v(-0.35em)
   #line(length: 100%, stroke: 0.4pt)
-  #v(0.2em)
+  #v(0.1em)
   #kirchgemeinde.name \
   #kirchgemeinde.strasse \
   #kirchgemeinde.plz_ort
 ]
 
-#let personalien = grid(
-  columns: (4cm, 1fr),
-  row-gutter: 0.6em,
-  [Name], [#vollname],
-  [Geburtsdatum], [#person.geburtsdatum],
-  [Adresse], [#person.strasse, #person.plz #person.ort],
-)
+// Ein Eintrag im Personalien-Block: kleine graue Beschriftung,
+// darunter der Wert.
+#let eintrag(beschriftung, wert) = [
+  #set par(leading: 0.45em)
+  #text(size: 7.5pt, fill: luma(45%), tracking: 0.08em)[#upper(beschriftung)] \
+  #wert
+]
+
+#let personalien = block(
+  width: 100%,
+  fill: luma(96%),
+  radius: 3pt,
+  inset: (x: 12pt, y: 11pt),
+)[
+  #grid(
+    columns: (1fr, 1fr),
+    column-gutter: 12pt,
+    row-gutter: 11pt,
+    eintrag("Name", vollname),
+    eintrag("Geburtsdatum", person.geburtsdatum),
+    grid.cell(colspan: 2, eintrag("Adresse", [#person.strasse \ #person.plz #person.ort])),
+  )
+]
 
 // ---------------------------- 4. Der Brief -------------------
 
@@ -114,7 +130,7 @@ streichen Sie mich aus dem Mitgliederverzeichnis Ihrer Kirchgemeinde.
 
 Zu meiner Person:
 
-#block(above: 0.5em, below: 1.4em, personalien)
+#block(above: 0.7em, below: 1.4em, personalien)
 
 Bitte bestätigen Sie mir den Austritt schriftlich.
 
